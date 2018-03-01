@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.sunny.meng.mapper.FirstGroupMapper" >
+
+    <select id="findAll" resultType="FirstGroupEntity">
+        SELECT * FROM firstGroup;
+    </select>
+
+    <select id="find" resultType="FirstGroupEntity" parameterType="String">
+        SELECT * FROM firstGroup
+        <where>name=#{name}</where>
+    </select>
+
+    <select id="findTask" parameterType="String" resultType="FirstGroupEntity">
+        SELECT * FROM firstGroup WHERE task=#{name}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="FirstGroupEntity">
+        INSERT INTO firstGroup(name,salary,task) VALUES (#{name},#{salary},#{task})
+    </insert>
+
+
+</mapper>
